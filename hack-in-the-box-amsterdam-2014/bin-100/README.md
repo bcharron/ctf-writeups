@@ -53,6 +53,7 @@ I started with replacing the first time call with "xor r11,r11". Then I would ha
 	}
 ```
 
+```bash
 gcc -fPIC -shared time_preload.c -o pre.so
 
 export LD_PRELOAD=./pre.so
@@ -61,6 +62,4 @@ export LD_PRELOAD=./pre.so
  ♫                                    tHiS sOME 99 tHROWBACK sHiT tHAT iM sCREAMiNG ♫
 KEY: 19 8f 67 74 c9 68 e6 0c 6f 54 1a 43 af 7b 5f b3 5c 01 98 58 68 56 1a 5e 31 0c 46 29 b8 a8 93 fc bf f9 70 5e 
 OK YOU WIN. HERE'S YOUR FLAG: p4ul_1z_d34d_1z_wh4t_th3_r3c0rd_s4ys
-
-
-
+```
