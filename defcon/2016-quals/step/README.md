@@ -1,7 +1,6 @@
-step
-Defcon 2016 Quals
-bcharron@pobox.com
-
+CTF: Defcon Quals 2016
+Challenge: step
+Author: Benjamin Charron <bcharron@pobox.com>
 
 Decompilation of two first functions from Hopper:
 ```c
