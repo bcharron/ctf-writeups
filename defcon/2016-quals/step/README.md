@@ -140,7 +140,8 @@ So it calls the xor_decode_data() again at 0x00400e48, decoding the stuff at
 
 In a nutshell, this function sets up a handler for SIGTRAP, then sets the Trace
 flag via pushfq/pop/or/push/popfq. What it does is send a SIGTRAP at every
-instruction.
+instruction. Everytime the program receives SIGTRAP, it calls the function at
+0x400936.
 
 We've already entered the key, let's see how it turns out once decoded:
 
@@ -201,11 +202,16 @@ We've already entered the key, let's see how it turns out once decoded:
             0x00400a21      c3             ret
 ```
 
+This function decodes the instruction that was about to be executed when TRAP
+was sent.
+
 The function should have the following prototype:
 
 ```c
              void    (*__sa_sigaction)(int, siginfo_t *, void *);
 ```
+
+where the last argument is a context.
 
 The debugger is making it hard to get to break at 0x00400936 since it
 interferes with the SIGTRAP. In r2, we just deliver the signal to the process
